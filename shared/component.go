@@ -25,3 +25,10 @@ type Component struct {
 	// kind é o tipo de component
 	kind string
 }
+
+// componente retorna a atual conexao do banco de dados
+func (c *Component) DB() *sql.DB {
+	c.cmu.Lock()
+	defer c.cmu.Unlock()
+	return c.db
+}
