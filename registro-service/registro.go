@@ -11,6 +11,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/marcelogbrito/nats-centromedico/shared"
 	"github.com/nats-io/nuid"
