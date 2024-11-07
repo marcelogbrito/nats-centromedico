@@ -27,3 +27,13 @@ type RegistrationRequest struct {
 	//REquestID é o ID do request
 	RequestID string `json:"request_id,omitempty"`
 }
+
+// RegistrationEvent contem os detalhes de uma instancia de registration
+type RegistrationEvent struct {
+
+	// ID do paciente
+	ID int `json:"id"`
+
+	//token do paciente
+	Token uint64 `json:"token"`
+}

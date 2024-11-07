@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -69,4 +70,14 @@ func (s *Server) HandleRegistro(w http.ResponseWriter, r *http.Request) {
 
 	//Publica evento no servidor NATS
 	nc := s.NATS()
+
+	//var registration_event shared.RegistrationEvent
+	tokenNo := generateTokenNumber(0)
+	registration_event := shared.RegistrationEvent{registration.ID, tokenNo}
+	reg_event, err := json.Marshal(registration_event)
+
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
 }
