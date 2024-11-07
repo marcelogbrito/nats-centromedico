@@ -2,6 +2,8 @@ module github.com/marcelogbrito/nats-centromedico/registro-service
 
 go 1.23.0
 
+replace github.com/marcelogbrito/nats-centromedico/shared v0.0.0-20241106202713-c17bdb35368e => ../shared
+
 require (
 	github.com/gorilla/mux v1.8.1
 	github.com/marcelogbrito/nats-centromedico/shared v0.0.0-20241106202713-c17bdb35368e

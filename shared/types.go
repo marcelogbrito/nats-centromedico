@@ -13,7 +13,7 @@ type RegistrationRequest struct {
 	ID int `json:"id"`
 
 	// Orientaçao sexual
-	sexo string `json:"sexo,omitempty"`
+	Sexo string `json:"sexo,omitempty"`
 
 	// Endereço de email
 	Email string `json:"email,omitempty"`
