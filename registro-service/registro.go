@@ -53,4 +53,6 @@ func (s *Server) HandleRegistro(w http.ResponseWriter, r *http.Request) {
 
 	// Insere dados no banco de dados
 	db := s.DB()
+
+	insForm, err := db.Prepare()
 }
