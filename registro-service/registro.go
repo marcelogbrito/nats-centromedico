@@ -8,6 +8,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/marcelogbrito/nats-centromedico/shared"
+	"github.com/nats-io/nuid"
 )
 
 const (
@@ -54,5 +55,18 @@ func (s *Server) HandleRegistro(w http.ResponseWriter, r *http.Request) {
 	// Insere dados no banco de dados
 	db := s.DB()
 
-	insForm, err := db.Prepare()
+	insForm, err := db.Prepare("INSERT INTO paciente_detalhes(id, nome_completo, endereco, sexo, telefone, observacoes) VALUES(?,?,?,?,?,?)")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	insForm.Exec(registration.ID, registration.NomeCompleto, registration.Endereco, registration.Sexo, registration.Telefone,
+		registration.Observacoes)
+
+	// Marca o request com um ID para tracing nos logs
+	registration.RequestID = nuid.Next()
+	fmt.Println(registration)
+
+	//Publica evento no servidor NATS
+	nc := s.NATS()
 }

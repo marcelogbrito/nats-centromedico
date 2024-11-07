@@ -32,3 +32,10 @@ func (c *Component) DB() *sql.DB {
 	defer c.cmu.Unlock()
 	return c.db
 }
+
+// NATS retorna a conexão NATS atual
+func (c *Component) NATS() *nats.Conn {
+	c.cmu.Lock()
+	defer c.cmu.Unlock()
+	return c.nc
+}
