@@ -61,7 +61,7 @@ func main() {
 	}
 
 	// Conecta ao Banco de Dados
-	err = comp.SetupConnectionToDB("mysql", dbUser+":"+dbPass+"@tcp(localhost:"+dbPort+")/"+dbName)
+	err = comp.SetupConnectionToDB("mysql", "example_user:example_password@tcp(localhost:3307)/registro_db")
 	if err != nil {
 		log.Fatal(err)
 	}

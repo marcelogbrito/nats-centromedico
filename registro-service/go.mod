@@ -6,6 +6,8 @@ replace github.com/marcelogbrito/nats-centromedico/shared v0.0.0-20241106202713-
 
 replace github.com/marcelogbrito/nats-centromedico/shared => ../shared
 
+replace github.com/marcelogbrito/nats-centromedico/registro-service => ./registro-service
+
 require (
 	github.com/gorilla/mux v1.8.1
 	github.com/marcelogbrito/nats-centromedico/shared v0.0.0-20241106202713-c17bdb35368e

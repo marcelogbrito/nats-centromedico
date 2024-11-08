@@ -47,7 +47,7 @@ func (s *Server) ListenAndServe(addr string) error {
 
 	// Handle de registro de paciente
 	// POST /cmed/paciente/registro
-	router.HandleFunc("registro", s.HandleRegistro).Methods("POST")
+	router.HandleFunc("/registro/", s.HandleRegistro).Methods("POST")
 
 	// Handle de request de update de paciente
 	// PUT /cmed/paciente/atualiza
