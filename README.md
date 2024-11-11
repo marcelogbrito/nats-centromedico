@@ -1,0 +1,2 @@
+go run cmd/main.go -dbName registro_db –dbUser example_user –dbPassword example_password
+curl "http://localhost:9090/cmed/paciente/registro/" -X POST -d '{"nome_completo":"Marcelo Brito","endereco":"Rua Ficticia, 67","id":200, "sexo":"M", "telefone":"222222222"}'
